@@ -149,7 +149,7 @@ function Library:Create(hubname, gamename, presetColor)
 		UICorner_5.Parent = Page
 		
 		PageButton.MouseButton1Click:Connect(function()
-				--pcall(callback)
+			--pcall(callback)
 			for i,v in pairs(Pages:GetChildren()) do
 				v.Visible = false
 			end
