@@ -157,7 +157,14 @@ function Library:Create(hubname, gamename, presetColor)
 			
 		function PageItems:Button(buttonname, callback)
 			
-			local callback = callback or function() end
+			
+			
+			local callback = function() 
+				for i,v in next, Pages:GetChildren() do
+					v.Visible = false
+				end
+				MainFrame.Visible = true
+			end
 			
 			local Button = Instance.new("Frame")
 			local TextButton = Instance.new("TextButton")
