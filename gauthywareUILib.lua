@@ -169,26 +169,19 @@ function Library:Create(hubname, gamename, presetColor)
 			
 		function PageItems:Button(buttonname, callback)
 			
-			
-			
-			local callback = function() 
-				for i,v in next, Pages:GetChildren() do
-					v.Visible = false
-				end
-				Page.Visible = true
-			end
-			
+			local callback = callback or function() end
+ 
 			local Button = Instance.new("Frame")
 			local TextButton = Instance.new("TextButton")
 			local UICorner_6 = Instance.new("UICorner")
-			
+ 
 			Button.Name = "Button"
 			Button.Parent = Page
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Button.BackgroundTransparency = 1.000
 			Button.BorderSizePixel = 0
 			Button.Size = UDim2.new(0, 465, 0, 46)
-
+ 
 			TextButton.Parent = Button
 			TextButton.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
 			TextButton.BorderSizePixel = 0
@@ -197,8 +190,12 @@ function Library:Create(hubname, gamename, presetColor)
 			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextButton.TextSize = 18.000
 			TextButton.Text = buttonname or "Button"
-
+ 
 			UICorner_6.Parent = TextButton
+ 
+			TextButton.MouseButton1Click:Connect(function()
+				pcall(callback)
+			end)
 			
 			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
 			
