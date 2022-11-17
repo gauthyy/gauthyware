@@ -150,7 +150,7 @@ function Library:Create(hubname, gamename, presetColor)
 		
 		PageButton.MouseButton1Click:Connect(function()
 				--pcall(callback)
-			for i,v in next, Pages:GetChildren() do
+			for i,v in pairs(Pages:GetChildren()) do
 				v.Visible = false
 			end
 			Page.Visible = true
