@@ -150,7 +150,7 @@ function Library:Create(hubname, gamename, presetColor)
 		
 		PageButton.MouseButton1Click:Connect(function()
 			--pcall(callback)
-			--for i,v in pairs(TabHolder:GetChildren()) do
+			--=for i,v in pairs(TabHolder:GetChildren()) do
 				--v.TextColor3 = Color3.fromRGB(169, 169, 169)
 			--end
 			--PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
