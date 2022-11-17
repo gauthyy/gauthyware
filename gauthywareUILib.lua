@@ -28,52 +28,7 @@ function Library:Create(hubname, gamename, presetColor)
 	MainFrame.BorderSizePixel = 0
 	MainFrame.Position = UDim2.new(0.396880418, 0, 0.423832923, 0)
 	MainFrame.Size = UDim2.new(0, 638, 0, 435)
-	
-	local function DXLTZGE_fake_script() -- mainframe.Dragify 
-	local script = Instance.new('LocalScript', MainFrame)
-
-	local UIS = game:GetService("UserInputService")
-	function dragify(Frame)
-	    dragToggle = nil
-	    local dragSpeed = 0.25
-	    dragInput = nil
-	    dragStart = nil
-	    local dragPos = nil
-	    function updateInput(input)
-	        local Delta = input.Position - dragStart
-	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
-	    end
-	    Frame.InputBegan:Connect(function(input)
-	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
-	            dragToggle = true
-	            dragStart = input.Position
-	            startPos = Frame.Position
-	            input.Changed:Connect(function()
-	                if input.UserInputState == Enum.UserInputState.End then
-	                    dragToggle = false
-	                end
-	            end)
-	        end
-	    end)
-	    Frame.InputChanged:Connect(function(input)
-	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-	            dragInput = input
-	        end
-	    end)
-	    game:GetService("UserInputService").InputChanged:Connect(function(input)
-	        if input == dragInput and dragToggle then
-	            updateInput(input)
-	        end
-	    end)
-	end
-	
-	dragify(script.Parent)
-	
-	end
-	coroutine.wrap(DXLTZGE_fake_script)()
-	
-	--syn.protect_gui(Hub)
+	MainFrame.Draggable = true
 
 	TabHolder.Name = "TabHolder"
 	TabHolder.Parent = MainFrame
@@ -139,15 +94,15 @@ function Library:Create(hubname, gamename, presetColor)
 	Pages.Name = "Pages"
 	Pages.Parent = MainFrame
   
-local function OOJCDBJ_fake_script() -- mainframe.PositioningScript 
-	local script = Instance.new('LocalScript', MainFrame)
+	local function OOJCDBJ_fake_script() -- mainframe.PositioningScript 
+		local script = Instance.new('LocalScript', MainFrame)
 
-	--//Scripted by Sochi\\
-	-- script.Parent.Position = UDim2.new(0, 100, 0, -1000)
-	script.Parent:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Quad", 1)
-	script.Parent.Draggable = true
-end
-coroutine.wrap(OOJCDBJ_fake_script)()
+		--//scripted by da gauthy\\
+		script.Parent.Position = UDim2.new(0, 100, 0, -1000)
+		script.Parent:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Quad", 1)
+		script.Parent.Draggable = true
+	end
+	coroutine.wrap(OOJCDBJ_fake_script)()
 	
 	local Win = {}
 	
