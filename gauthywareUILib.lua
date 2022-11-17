@@ -128,14 +128,6 @@ function Library:Create(hubname, gamename, presetColor)
 		PageButton.TextTransparency = 0.74
 		PageButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 		PageButton.TextStrokeTransparency = 0.960
-		
-			PageButton.MouseButton1Click:Connect(function()
-				--pcall(callback)
-				for i,v in next, Pages:GetChildren() do
-					v.Visible = false
-				end
-				Page.Visible = true
-			end)
 
 		UICorner_2.Parent = PageButton
 		
@@ -155,6 +147,14 @@ function Library:Create(hubname, gamename, presetColor)
 		UIListLayout_2.Padding = UDim.new(0, 6)
 	
 		UICorner_5.Parent = Page
+		
+		PageButton.MouseButton1Click:Connect(function()
+				--pcall(callback)
+			for i,v in next, Pages:GetChildren() do
+				v.Visible = false
+			end
+			Page.Visible = true
+		end)
 		
 		if mainpage then
 			Page.Visible = true
