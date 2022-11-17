@@ -150,10 +150,10 @@ function Library:Create(hubname, gamename, presetColor)
 		
 		PageButton.MouseButton1Click:Connect(function()
 			--pcall(callback)
-			for i,v in pairs(TabHolder:GetChildren()) do
-				v.TextColor3 = Color3.fromRGB(169, 169, 169)
-			end
-			PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			--for i,v in pairs(TabHolder:GetChildren()) do
+				--v.TextColor3 = Color3.fromRGB(169, 169, 169)
+			--end
+			--PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 			for i,v in pairs(Pages:GetChildren()) do
 				v.Visible = false
 			end
@@ -377,7 +377,7 @@ function Library:Create(hubname, gamename, presetColor)
 
 			InnerSlider.Name = "InnerSlider"
 			InnerSlider.Parent = OuterSlider
-			InnerSlider.BackgroundColor3 = presetColor
+			InnerSlider.BackgroundColor3 = Color3.new(77, 106, 255)
 			InnerSlider.Size = UDim2.new(0, 0, 0, 9)
 			InnerSlider.BorderSizePixel = 0
 
