@@ -29,7 +29,7 @@ function Library:Create(hubname, gamename, presetColor)
 	MainFrame.BorderSizePixel = 0
 	MainFrame.Position = UDim2.new(0.396880418, 0, 0.423832923, 0)
 	MainFrame.Size = UDim2.new(0, 638, 0, 435)
-	MainFrame.Draggable = true
+	--MainFrame.Draggable = true
 
 	TabHolder.Name = "TabHolder"
 	TabHolder.Parent = MainFrame
