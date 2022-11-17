@@ -189,7 +189,11 @@ function Library:Create(hubname, gamename, presetColor)
 			UICorner_6.Parent = TextButton
 			
 			TextButton.MouseButton1Click:Connect(function()
-				pcall(callback)
+				--pcall(callback)
+				for i,v in next, Pages:GetChildren() do
+					v.Visible = false
+				end
+				Page.Visible = true
 			end)
 			
 			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
