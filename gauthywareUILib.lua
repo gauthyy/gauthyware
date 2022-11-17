@@ -304,7 +304,7 @@ function Library:Create(hubname, gamename, presetColor)
 				if toggled == false then
 					
 					TS:Create(TextButton_Roundify_8px_2, TweenInfo.new(0.2), {Position = UDim2.new(0.65, 0,0.286, 0)}):Play()
-					TS:Create(TextButton_Roundify_8px, TweenInfo.new(0.2), {ImageColor3 = presetColor}):Play()
+					TS:Create(TextButton_Roundify_8px, TweenInfo.new(0.2), {ImageColor3 = Color3.new(77, 106, 255)}):Play()
 					
 				else
 					
