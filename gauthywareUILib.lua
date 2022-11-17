@@ -128,6 +128,14 @@ function Library:Create(hubname, gamename, presetColor)
 		PageButton.TextTransparency = 0.74
 		PageButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 		PageButton.TextStrokeTransparency = 0.960
+		
+			PageButton.MouseButton1Click:Connect(function()
+				--pcall(callback)
+				for i,v in next, PageItems:GetChildren() do
+					v.Visible = false
+				end
+				Page.Visible = true
+			end)
 
 		UICorner_2.Parent = PageButton
 		
@@ -187,14 +195,6 @@ function Library:Create(hubname, gamename, presetColor)
 			TextButton.Text = buttonname or "Button"
 
 			UICorner_6.Parent = TextButton
-			
-			TextButton.MouseButton1Click:Connect(function()
-				--pcall(callback)
-				for i,v in next, PageItems:GetChildren() do
-					v.Visible = false
-				end
-				Page.Visible = true
-			end)
 			
 			Page.CanvasSize = Page.CanvasSize + UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y)
 			
