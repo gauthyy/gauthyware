@@ -19,6 +19,7 @@ function Library:Create(hubname, gamename, presetColor)
 	local Pages = Instance.new("Folder")
 	
 	Hub.Name = "Hub"
+	Hub.Parent = game.CoreGui
 	
 	MainFrame.Name = "MainFrame"
 	MainFrame.Parent = Hub
@@ -72,8 +73,7 @@ function Library:Create(hubname, gamename, presetColor)
 	end
 	coroutine.wrap(DXLTZGE_fake_script)()
 	
-	syn.protect_gui(Hub)
-	Hub.Parent = game.CoreGui
+	--syn.protect_gui(Hub)
 
 	TabHolder.Name = "TabHolder"
 	TabHolder.Parent = MainFrame
