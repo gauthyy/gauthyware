@@ -9,6 +9,27 @@ function Library:Create(hubname, gamename, presetColor)
 	local Hub = Instance.new("ScreenGui")
 	local MainFrame = Instance.new("Frame")
 	
+	local TabHolder = Instance.new("ScrollingFrame")
+	local UICorner = Instance.new("UICorner")
+	
+	local UIListLayout = Instance.new("UIListLayout")
+	local UICorner_4 = Instance.new("UICorner")
+	local CloseButton = Instance.new("ImageButton")
+	local Hubname = Instance.new("TextLabel")
+	local Gamename = Instance.new("TextLabel")
+	local Pages = Instance.new("Folder")
+	
+	Hub.Name = "Hub"
+	Hub.Parent = game.CoreGui
+	
+	MainFrame.Name = "MainFrame"
+	MainFrame.Parent = Hub
+	MainFrame.Active = true
+	MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	MainFrame.BorderSizePixel = 0
+	MainFrame.Position = UDim2.new(0.396880418, 0, 0.423832923, 0)
+	MainFrame.Size = UDim2.new(0, 638, 0, 435)
+	--MainFrame.Draggable = true
 	local function AYXB_fake_script() -- Frame.Drag 
 		local script = Instance.new('LocalScript', MainFrame)
 
@@ -50,28 +71,6 @@ function Library:Create(hubname, gamename, presetColor)
 		drag(script.Parent)
 		end
 	coroutine.wrap(AYXB_fake_script)()
-	
-	local TabHolder = Instance.new("ScrollingFrame")
-	local UICorner = Instance.new("UICorner")
-	
-	local UIListLayout = Instance.new("UIListLayout")
-	local UICorner_4 = Instance.new("UICorner")
-	local CloseButton = Instance.new("ImageButton")
-	local Hubname = Instance.new("TextLabel")
-	local Gamename = Instance.new("TextLabel")
-	local Pages = Instance.new("Folder")
-	
-	Hub.Name = "Hub"
-	Hub.Parent = game.CoreGui
-	
-	MainFrame.Name = "MainFrame"
-	MainFrame.Parent = Hub
-	MainFrame.Active = true
-	MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	MainFrame.BorderSizePixel = 0
-	MainFrame.Position = UDim2.new(0.396880418, 0, 0.423832923, 0)
-	MainFrame.Size = UDim2.new(0, 638, 0, 435)
-	MainFrame.Draggable = true
 
 	TabHolder.Name = "TabHolder"
 	TabHolder.Parent = MainFrame
