@@ -468,11 +468,7 @@ function Library:Create(hubname, gamename, presetColor)
 		
 	end
 	
-	return Win
-	
-end
-
--- Scripts:
+	-- Scripts:
 	local function AYXB_fake_script() -- Frame.Drag 
 		local script = Instance.new('LocalScript', MainFrame)
 
@@ -514,5 +510,9 @@ end
 		drag(script.Parent)
 		end
 	coroutine.wrap(AYXB_fake_script)()
+	
+	return Win
+	
+end
 
 return Library
