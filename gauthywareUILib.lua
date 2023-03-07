@@ -30,47 +30,6 @@ function Library:Create(hubname, gamename, presetColor)
 	MainFrame.Position = UDim2.new(0.396880418, 0, 0.423832923, 0)
 	MainFrame.Size = UDim2.new(0, 638, 0, 435)
 	--MainFrame.Draggable = true
-	local function AYXB_fake_script() -- Frame.Drag 
-		local script = Instance.new('LocalScript', MainFrame)
-
-		local UIS = game:GetService("UserInputService")
-		function drag(MainFrame)
-			dragToggle = nil
-			dragSpeed = 0.23
-			dragInput = nil
-			dragStart = nil
-			dragPos = nil
-			function updateInput(input)
-				Delta = input.Position - dragStart
-				Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-				game:GetService("TweenService"):Create(MainFrame, TweenInfo.new(0.25), {Position = Position}):Play()
-			end
-			MainFrame.InputBegan:Connect(function(input)
-				if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
-					dragToggle = true
-					dragStart = input.Position
-					startPos = MainFrame.Position
-					input.Changed:Connect(function()
-						if input.UserInputState == Enum.UserInputState.End then
-							dragToggle = false
-						end
-					end)
-				end
-			end)
-			MainFrame.InputChanged:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-					dragInput = input
-				end
-			end)
-			game:GetService("UserInputService").InputChanged:Connect(function(input)
-				if input == dragInput and dragToggle then
-					updateInput(input)
-				end
-			end)
-		end
-		drag(script.Parent)
-		end
-	coroutine.wrap(AYXB_fake_script)()
 
 	TabHolder.Name = "TabHolder"
 	TabHolder.Parent = MainFrame
@@ -512,5 +471,48 @@ function Library:Create(hubname, gamename, presetColor)
 	return Win
 	
 end
+
+-- Scripts:
+	local function AYXB_fake_script() -- Frame.Drag 
+		local script = Instance.new('LocalScript', MainFrame)
+
+		local UIS = game:GetService("UserInputService")
+		function drag(MainFrame)
+			dragToggle = nil
+			dragSpeed = 0.23
+			dragInput = nil
+			dragStart = nil
+			dragPos = nil
+			function updateInput(input)
+				Delta = input.Position - dragStart
+				Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+				game:GetService("TweenService"):Create(MainFrame, TweenInfo.new(0.25), {Position = Position}):Play()
+			end
+			MainFrame.InputBegan:Connect(function(input)
+				if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+					dragToggle = true
+					dragStart = input.Position
+					startPos = MainFrame.Position
+					input.Changed:Connect(function()
+						if input.UserInputState == Enum.UserInputState.End then
+							dragToggle = false
+						end
+					end)
+				end
+			end)
+			MainFrame.InputChanged:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+					dragInput = input
+				end
+			end)
+			game:GetService("UserInputService").InputChanged:Connect(function(input)
+				if input == dragInput and dragToggle then
+					updateInput(input)
+				end
+			end)
+		end
+		drag(script.Parent)
+		end
+	coroutine.wrap(AYXB_fake_script)()
 
 return Library
